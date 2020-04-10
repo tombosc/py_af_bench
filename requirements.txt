@@ -1,0 +1,9 @@
+name: py_af_bench_env
+channels:
+  - defaults
+dependencies:
+  - cython=0.29.15=py38he6710b0_0
+  - numba=0.48.0=py38h0573a6f_0
+  - numpy=1.18.1=py38h4f9e942_0
+  - numpy-base=1.18.1=py38hde5b4d6_1
+  - python=3.8.1=h0371630_1
