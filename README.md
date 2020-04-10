@@ -6,9 +6,13 @@ To compile modules that should be compiled:
 
 ```python setup.py build_ext```
 
+To run the test:
+
+```python test_filters.py```
+
 The filter is defined by the recurrence `y[n] = (1-alpha) y[n-1] + alpha x[n]`. AFAIK, in numpy, this has to be a for loop. Using C code, it is at least 500 times faster.
 
-The arrays used have size between 100 and 1000 which corresponds to reasonable real-time audio buffer size. To get sufficient reactivity (short delay between keypress and sound), you want to split each beat in, say 24*4 (24 pulse-per-quarter note as in the MIDI standard) and generate pieces of soundwaves. At 120 BPM, that's 24*4*2=192 per sec, so if your resolution is 44100Hz, you'll approximately generate 230 samples at each call. 
+The arrays used have size between 100 and 1000 which corresponds to reasonable real-time audio buffer size. To get sufficient reactivity (short delay between keypress and sound), you want to split each beat in, say 24\*4 (24 pulse-per-quarter note as in the MIDI standard) and generate pieces of soundwaves. At 120 BPM, that's 24\*4\*2=192 per sec, so if your resolution is 44100Hz, you'll approximately generate 230 samples at each call. 
 
 The code is naive and could be further improved (even in the C version). Also, we could get rid of memory allocations (I compare the 2 C versions w/ and w/o memory alloc for storing the results).
 
